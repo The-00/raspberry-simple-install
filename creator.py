@@ -39,7 +39,7 @@ if interactive_enable:
 
 ## FLASH
 flash_commande = "3-flash"
-flash_commande += " --device=" + flash_position
+flash_commande += " --device=\"" + flash_position +"\""
 
 if interactive_enable:
     r_u_sure(flash_commande)
