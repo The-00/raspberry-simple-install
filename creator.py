@@ -47,6 +47,15 @@ if interactive_enable:
 
 scripts="scripts/"
 
+if interactive_enable:
+    sure = input("autorun ? [Y|n]")
+    if not sure.lower() in ["", "y", "yes"]:
+        print("you can run thoses manually with:")
+        print(scripts + get_commande)
+        print(scripts + configure_commande)
+        print(scripts + flash_commande)
+        exit(0)
+
 os.system(scripts + get_commande)
 os.system(scripts + configure_commande)
 os.system(scripts + flash_commande)
