@@ -26,8 +26,9 @@ if not wifi_enable:
 else:
     configure_commande += " --wifi-ssid=\"" + wifi_SSID + "\""
     configure_commande += " --wifi-password=\"" + wifi_psw + "\""
-    configure_commande += " --my-ip=\"" + wifi_fix_ip + "\""
-    configure_commande += " --router-ip=\"" + wifi_default_gateway_ip + "\""
+    if len(wifi_fix_ip)>0 and len(wifi_default_gateway_ip):
+        configure_commande += " --my-ip=\"" + wifi_fix_ip + "\""
+        configure_commande += " --router-ip=\"" + wifi_default_gateway_ip + "\""
 if len(ssh_path) > 0:
     configure_commande += " --ssh=\"" + ssh_path + "\""
 if len(pi_password) > 0:
@@ -52,10 +53,10 @@ if interactive_enable:
     if not sure.lower() in ["", "y", "yes"]:
         print("you can run thoses manually with:")
         print(scripts + get_commande)
-        print(scripts + configure_commande)
-        print(scripts + flash_commande)
+        print("sudo " + scripts + configure_commande)
+        print("sudo " + scripts + flash_commande)
         exit(0)
 
 os.system(scripts + get_commande)
-os.system(scripts + configure_commande)
-os.system(scripts + flash_commande)
+os.system("sudo " + scripts + configure_commande)
+os.system("sudo " + scripts + flash_commande)
