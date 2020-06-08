@@ -23,6 +23,7 @@ while test $# -gt 0; do
       echo "-mip, --my-ip=MYIP         specify raspberrypi IP (optional)"
       echo "-rip, --router-ip=ROUTERIP specify default gateway IP (optional)"
       echo "--ssh=SSHPATH              specify ssh key position"
+      echo "--script=SCRIPTPATH        specify ssh key position"
       exit 0
       ;;
     -nw|--no-wifi)
@@ -87,6 +88,10 @@ while test $# -gt 0; do
       ;;
     --ssh*)
       export SSHPATH=`echo $1 | sed -e 's/^[^=]*=//g'`
+      shift
+      ;;
+    --script*)
+      export SCRIPTPATH=`echo $1 | sed -e 's/^[^=]*=//g'`
       shift
       ;;
     -p)
@@ -162,6 +167,18 @@ echo "new pass for user 'pi'"
 echo "$PIPASS -> $HASHPASS"
 PREPAREDHASHPASS=$( echo $HASHPASS | sed 's/\//\\\//g' )
 sed -i -e "s/pi:[^:]*:/pi:$PREPAREDHASHPASS:/" $TEMPDIR/etc/shadow
+
+
+if [ -z ${SCRIPTPATH+x} ];
+then
+	echo "no script";
+else
+	echo "running script $SCRIPTPATH"
+	cp $SCRIPTPATH  $TEMPDIR/home/pi
+	chmod +x $TEMPDIR/home/pi/$SCRIPTPATH
+	$TEMPDIR/home/pi/$SCRIPTPATH
+fi
+
 
 echo "Cleaning..."
 

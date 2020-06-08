@@ -33,6 +33,8 @@ if len(ssh_path) > 0:
     configure_commande += " --ssh=\"" + ssh_path + "\""
 if len(pi_password) > 0:
     configure_commande += " --password=\"" + pi_password + "\""
+if len(advanced_script)>0:
+    configure_commande += " --script=\"" + advanced_script + "\""
 
 if interactive_enable:
     r_u_sure(configure_commande)
