@@ -176,7 +176,7 @@ else
 	echo "running script $SCRIPTPATH"
 	cp $SCRIPTPATH  $TEMPDIR/home/pi
 	chmod +x $TEMPDIR/home/pi/$SCRIPTPATH
-	$TEMPDIR/home/pi/$SCRIPTPATH
+	$TEMPDIR/home/pi/$SCRIPTPATH "$TEMPDIR"
 fi
 
 
