@@ -13,8 +13,8 @@ ssh_path                = "/home/USER/.ssh/id_rsa.pub"   # path of you ssh key, 
 wifi_enable             = True                           # enable wifi access (raspberry 3 or +)
 wifi_SSID               = "MyWifiName"                   # wifi SSID
 wifi_psw                = "MyW1f1P455"                   # wifi password
-wifi_fix_ip             = "192.168.1.42/24"              # raspberry expected ip + mask
-wifi_default_gateway_ip = "192.168.1.1"                  # router (box, phone with internet acces, other)
+wifi_fix_ip             = "192.168.1.42/24"              # raspberry expected ip + mask (optional)
+wifi_default_gateway_ip = "192.168.1.1"                  # router (box, phone with internet acces, other) (optional)
 
 # flash
 flash_position          = "/dev/mmcblk0"                 # the position of the device to flash
