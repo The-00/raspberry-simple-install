@@ -1,10 +1,12 @@
+# to unset a value : ""
+
 # pi
-pi_password             = "bestBoy"                      # password set with salt 'pilog'
+pi_password             = "bestBoy"                      # password set with salt 'pilog' (optional -> keep "raspberry")
 
 # image
 image_latest            = True                           # if false, check url
 image_light             = True                           # if false, get full version
-image_url               = ""                             # you can pick an image here : https://downloads.raspberrypi.org/ -> you need the zip file
+image_url               = ""                             # you can pick an image here : https://downloads.raspberrypi.org/ -> you need the zip file (optional)
 
 # ssh
 ssh_path                = "/home/USER/.ssh/id_rsa.pub"   # path of you ssh key, please generate one if you don't have one
@@ -24,5 +26,4 @@ interactive_enable      = True                           # interactive version o
 
 # advanced
 advanced_script         = "scritp_ex.sh"                 # path to script, if you want somthing to be executed on the image before the first use of the raspberry
-                                                         # (git clone, echo things)
-                                                         # not working yet
+                                                         # (git clone, echo things) (optional)
