@@ -5,4 +5,4 @@ HOME=$ROOT/home/pi
 
 echo "root of the raspberry : $ROOT"
 echo "home directory : $HOME"
-echo "/!\\ THE SCRIPT IS EXECUTED HERE : $( pwd ) /!\\"
+echo "/!\\ THE SCRIPT IS EXECUTED HERE : $( pwd ) /!\\"  # That mean in the repository !

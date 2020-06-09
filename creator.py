@@ -33,6 +33,10 @@ if len(ssh_path) > 0:
     configure_commande += " --ssh=\"" + ssh_path + "\""
 if len(pi_password) > 0:
     configure_commande += " --password=\"" + pi_password + "\""
+if len(pi_hostname) > 0:
+    configure_commande += " --hostname=\"" + pi_hostname + "\""
+if len(pi_timezone) > 0:
+    configure_commande += " --timezone=\"" + pi_timezone + "\""
 if len(advanced_script)>0:
     configure_commande += " --script=\"" + advanced_script + "\""
 

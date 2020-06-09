@@ -2,6 +2,8 @@
 
 # pi
 pi_password             = "bestBoy"                      # password set with salt 'pilog' (optional -> keep "raspberry")
+pi_hostname             = "BESTBOY"                      # the raspberry pi hostname (optional -> keep "raspberrypi")
+pi_timezone             = "Europe/Paris"                 # cocorico | the raspberry pi timezone (optional -> keep "Europe/Paris")
 
 # image
 image_latest            = True                           # if false, check url
@@ -25,5 +27,5 @@ flash_position          = "/dev/mmcblk0"                 # the position of the d
 interactive_enable      = True                           # interactive version of the script
 
 # advanced
-advanced_script         = "scritp_ex.sh"                 # path to script, if you want somthing to be executed on the image before the first use of the raspberry
+advanced_script         = "script_ex.sh"                 # path to script, if you want somthing to be executed on the image before the first use of the raspberry
                                                          # (git clone, echo things) (optional)

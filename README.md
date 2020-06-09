@@ -1,6 +1,10 @@
 # raspberry-simple-install
 some scripts to pre-configure a simple raspberry pi
 
+## requirement
+* python (3)
+* `kpartx`
+
 ## usage
 
 1. insert your sdcard (`lsblk` may help to find the device name)

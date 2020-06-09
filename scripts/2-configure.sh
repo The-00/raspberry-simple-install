@@ -6,6 +6,8 @@ if [ "$EUID" -ne 0 ]
 fi
 
 PIPASS=raspberry
+PIHOSTNAME=raspberrypi
+TIMEZONE=Europe/Paris
 WIFI=true
 while test $# -gt 0; do
   case "$1" in
@@ -23,6 +25,8 @@ while test $# -gt 0; do
       echo "-mip, --my-ip=MYIP         specify raspberrypi IP (optional)"
       echo "-rip, --router-ip=ROUTERIP specify default gateway IP (optional)"
       echo "--ssh=SSHPATH              specify ssh key position"
+      echo "-n, --hostname=PIHOSTNAME  specify raspberrypi hostname"
+      echo "-tz, --timezone=TIMEZONE   specify timezone"
       echo "--script=SCRIPTPATH        specify ssh key position"
       exit 0
       ;;
@@ -108,6 +112,34 @@ while test $# -gt 0; do
       export PIPASS=`echo $1 | sed -e 's/^[^=]*=//g'`
       shift
       ;;
+    -n)
+      shift
+      if test $# -gt 0; then
+        export PIHOSTNAME=$1
+      else
+        echo "no password specified"
+        exit 1
+      fi
+      shift
+      ;;
+    --hostname*)
+      export PIHOSTNAME=`echo $1 | sed -e 's/^[^=]*=//g'`
+      shift
+      ;;
+    -tz)
+      shift
+      if test $# -gt 0; then
+        export TIMEZONE=$1
+      else
+        echo "no password specified"
+        exit 1
+      fi
+      shift
+      ;;
+    --timezone*)
+      export TIMEZONE=`echo $1 | sed -e 's/^[^=]*=//g'`
+      shift
+      ;;
     *)
       break
       ;;
@@ -168,6 +200,17 @@ echo "$PIPASS -> $HASHPASS"
 PREPAREDHASHPASS=$( echo $HASHPASS | sed 's/\//\\\//g' )
 sed -i -e "s/pi:[^:]*:/pi:$PREPAREDHASHPASS:/" $TEMPDIR/etc/shadow
 
+#on set le hostname
+echo "$PIHOSTNAME" > $TEMPDIR/etc/hostname
+echo -e "127.0.0.1\t\t$PIHOSTNAME" >> $TEMPDIR/etc/hosts
+
+#on set motd
+cp src/motd $TEMPDIR/etc/motd
+
+#on set la date
+rm $TEMPDIR/etc/localtime
+ln -s ../usr/share/zoneinfo/$TIMEZONE $TEMPDIR/etc/localtime
+echo $TIMEZONE > $TEMPDIR/etc/timezone
 
 if [ -z ${SCRIPTPATH+x} ];
 then
