@@ -27,5 +27,5 @@ flash_position          = "/dev/mmcblk0"                 # the position of the d
 interactive_enable      = True                           # interactive version of the script
 
 # advanced
-advanced_script         = "script_ex.sh"                 # path to script, if you want somthing to be executed on the image before the first use of the raspberry
+advanced_script         = "src/script_ex.sh"             # path to script, if you want somthing to be executed on the image before the first use of the raspberry
                                                          # (git clone, echo things) (optional)
