@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 from config import *
 import os
 
