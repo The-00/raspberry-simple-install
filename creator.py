@@ -44,7 +44,7 @@ if interactive_enable:
     r_u_sure(configure_commande)
 
 ## FLASH
-flash_commande = "3-flash"
+flash_commande = "3-flash.sh"
 flash_commande += " --device=\"" + flash_position +"\""
 
 if interactive_enable:

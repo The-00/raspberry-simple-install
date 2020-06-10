@@ -220,6 +220,7 @@ else
 	cp $SCRIPTPATH  $TEMPDIR/home/pi
 	chmod +x $TEMPDIR/home/pi/$SCRIPTPATH
 	$TEMPDIR/home/pi/$SCRIPTPATH "$TEMPDIR"
+	rm $TEMPDIR/home/pi
 fi
 
 

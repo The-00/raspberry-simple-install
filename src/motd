@@ -11,4 +11,7 @@ first run ? you should do an update !
 $> sudo apt update
 $> sudo apt upgrade
 
+for more advanced configuration
+$>sudo raspi-config
+
 Have a nice day !

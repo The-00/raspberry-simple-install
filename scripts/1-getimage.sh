@@ -47,5 +47,5 @@ wget $URL -O raspbian.zip
 
 unzip raspbian.zip
 # On supprime le zip pour gagner un peu de place puisqu'il ne sert plus à rien
-rm raspbian.zip
+rm raspbian.zip raspbian.img
 mv *.img raspbian.img
