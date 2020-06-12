@@ -16,7 +16,7 @@ It can set:
 * motd (`src/motd`)
 * timezone
 
-It can execute a self-maid script for your configuration (git clone etc...). **WARNING** This script is executed in the repository ! (see: `src/script_ex.sh`)
+It can execute a self-made script for your configuration (git clone etc...). **WARNING** This script is executed in the repository ! (see: `src/script_ex.sh`)
 
 It flash on yout microSD card.
 
